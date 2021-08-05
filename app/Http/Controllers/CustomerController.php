@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class CustomerController extends Controller
-{
-    <?php
-
-namespace App\Http\Controllers;
-
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use DataTables;
@@ -23,8 +15,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        // dd("hellow");
         $customers = Customer::all();
-         //dd($customers);
+        //  dd($customers);
         return view('customer.index', compact('customers'));
     }
     
@@ -132,4 +125,4 @@ class CustomerController extends Controller
     }
 }
 
-}
+
