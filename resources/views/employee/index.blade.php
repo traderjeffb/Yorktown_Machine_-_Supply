@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
 
 <div class="d-flex">
   <h3 class="mx-auto mt-4">Index of All Employee Infomation</h3>
@@ -56,7 +54,7 @@
   </table>
 </div> 
 </div>   
-@endsection
+{{-- @endsection --}}
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
