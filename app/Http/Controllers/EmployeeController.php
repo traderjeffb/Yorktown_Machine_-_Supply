@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class EmployeeController extends Controller
-{
-    <?php
-
-namespace App\Http\Controllers;
-
 use App\Models\employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -157,4 +149,4 @@ class employeeController extends Controller
     }
 }
 
-}
+
