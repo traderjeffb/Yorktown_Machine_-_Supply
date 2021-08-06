@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class CartController extends Controller
-{
-    <?php
-
-namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -32,7 +24,7 @@ class CartController extends Controller
         $cart = session()->get('cart');
 
         $cart[$id]=[
-
+            // "quantity"= 1,//how can I add a field that's not part of the database?
             "product_name" => $product->product_name,
             "product_number"=>$product->product_number,
             "product_department"=>$product->product_department,
@@ -129,4 +121,4 @@ class CartController extends Controller
     }
 }
 
-}
+
