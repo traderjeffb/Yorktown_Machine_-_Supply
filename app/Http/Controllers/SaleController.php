@@ -3,15 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class SaleController extends Controller
-{
-    <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\sale;
+use DB;
 
 
 class SaleController extends Controller
@@ -95,9 +88,19 @@ class SaleController extends Controller
     public function sale()
     {
         $cart = session()->get('cart');
+        $last_transaction = 0;
+
+        // $this->getNewSale_id();
+        $last_transaction =  sale::latest()
+        ->select(['sale_id'])
+        ->get();
+        
+        // dd($cart);
+        // $new_sale_id = $last_transaction.value(['sale_id']) +1;//<--causing error
 
         foreach ($cart as $item){
             $sale = new sale();
+            $sale->sale_id = 112233;
             $sale->product_name =   $item['product_name'];
             $sale->product_number = $item['product_number'];
             $sale->product_department = $item['product_department'];
@@ -105,10 +108,8 @@ class SaleController extends Controller
             $sale->price = $item['price'];
             $sale->save();
         }
-        // $cart = '';
-        // session = array();
-        return redirect('product.indexInternal')->with('success', 'Successfully Created');
+            session()->forget('cart');
+        return redirect('product.indexInternal')->with('success', 'Order was Successfully Created');
     }
 }
 
-}
