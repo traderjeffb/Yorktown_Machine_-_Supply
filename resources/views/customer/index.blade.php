@@ -4,20 +4,22 @@
         <div class="d-flex">
             <h3 class="mx-auto mt-4">Index of All Customer Infomation</h3>
         </div>
-        <div class="d-flex justify-content-center">  <a href= {{ route('customer.create') }}>       <h5>Add a New Customer</h5></a></div>
+        <div class="d-flex justify-content-center">
+            <a href= {{ route('customer.create') }}>    <h5>Add a New Customer</h5></a>
+        </div>
         <div>
             <div>
-            @if(Session::has('success'))
+                @if(Session::has('success'))
             <div class="alert alert-success text-center">
                 {{Session::get('success')}}
             </div>
-            @elseif(Session::has('danger'))
+                @elseif(Session::has('danger'))
             <div class="alert alert-danger text-center">
                 {{Session::get('danger')}}
             </div> 
             @endif
-    </div>
-</div>
+        </div>
+    {{-- </div> --}}
     <div class="container">
     <table id="customer" class="table table-bordered yajra-datatable cutomerTable  table-striped rounded table-responsive">
         <thead class="thead-dark">
@@ -56,7 +58,7 @@
 </div>
 </div>
 @endsection
-{{-- @endsection --}}
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
