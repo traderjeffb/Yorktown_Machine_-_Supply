@@ -17,7 +17,6 @@ class employeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-       // dd($employees);
         return view('employee.index', compact('employees'));
     }
 
@@ -79,7 +78,7 @@ class employeeController extends Controller
     public function details($id)
     {
             $employee = employee::where('id',"=","$id")->first();
-        //dd($employee);
+        // dd($employee);
             return view('employee.details',compact('employee'));
     }
 
