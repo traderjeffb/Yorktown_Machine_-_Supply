@@ -6,6 +6,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\MgtController;
+
 
 
 
@@ -59,11 +61,5 @@ Route::post('cart.store', [CartController::class, 'store'])->name('cart.store');
 Route::get('cart.cart', [CartController::class, 'cart'])->name('cart.cart');
 Route::get('cart.addToCart/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
 
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('employee.index');
-// })->name('employee.index');
+//Management 
+Route::get('mgt.index', [MgtController::class, 'index'])->name('mgt.index');
