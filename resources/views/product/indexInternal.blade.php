@@ -25,8 +25,10 @@
 
 <div class="container">  
   <button type="button" class="btn btn-primary position-relative p-2 m-3 mb-3">
-    <a href="{{ url('cart.cart') }}" class="text-white">View Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
-      {{-- <span class="visually-hidden">Items: {{@if(is_countable(count(session()->get('cart'))))}}</span> --}}
+    <a href="{{ url('cart.cart') }}" class="text-white">View Cart</a>
+     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary visually-hidden">Items: 
+       {{-- {{ @if(is_countable(count(session()->get('cart') ))) }} --}}
+    </span>
   </button>
 
   <table id="productInternal" class="table table-bordered table-striped table-hover rounded">
