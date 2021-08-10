@@ -17,14 +17,18 @@ class CartController extends Controller
         return view('cart.cart');
     }
 
-    public function addToCart($id)
-    {
+    public function addToCart(Request $request )
+     {   
+        $id= $request->input('product_id');
+        $quantity= $request->input('quantity');
+
+
         $product = Product::find($id);
 
         $cart = session()->get('cart');
 
         $cart[$id]=[
-            // "quantity"= 1,//how can I add a field that's not part of the database?
+            "quantity"=>$product->quantity,
             "product_name" => $product->product_name,
             "product_number"=>$product->product_number,
             "product_department"=>$product->product_department,
