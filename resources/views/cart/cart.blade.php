@@ -1,6 +1,8 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @section('content')
+
 
 
 <div class="d-flex">
@@ -23,7 +25,7 @@
   <table id="sales" class="table table-bordered table-striped rounded ">
     <thead class="thead-dark">
       <tr class="text-center">
-        <th>Quanity</th> 
+        <th>Quantity</th> 
         <th>Product Name</th>
         <th>Product Number</th>
         <th>Department</th>
@@ -34,6 +36,7 @@
     <tbody>
       <tr>
         @if(session('cart'))
+        {{-- @dd(session('cart'); --}}
         @foreach((session('cart')) as $product)
 
         <?php 
@@ -42,10 +45,10 @@
         $total += $product['price'] * $quanity 
         
         ?>
-        {{-- @empty($cart)? '$total="your Cart is empty" ' : '' ?> --}}
+        // {{-- @empty($cart)? '$total="your Cart is empty" ' : '' ?> --}}
             
-        {{-- @endempty --}}
-          <td><input class="text-center" name="quanity" type="number" value="1" style="width: 5em;"></td>
+        // {{-- @endempty --}}
+          <td class="text-center">{{ $product['quantity'] }}</td>
           <td class="text-center">{{ $product['product_name'] }}</td>
           <td class="text-center" >{{ $product['product_number'] }}</td>
           <td class="text-center" >{{ $product['product_department'] }}</td>
