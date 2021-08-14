@@ -3,7 +3,8 @@
 @section('content')
 
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <div class="d-flex">
   <h2 class="mx-auto mt-4">ORDER FORM</h2>
@@ -35,7 +36,8 @@
     <thead class="thead-dark">
       <tr class="text-center">
         <th>Add to Order</th>
-        <th class="">Product Name</th>
+        <th>Quantity</th>
+        <th>Product Name</th>
         <th>Product Number</th>
         <th>Department</th>
         <th>Description</th>
@@ -45,7 +47,13 @@
     <tbody>
       <tr>
         @foreach($products as $product)
-        <td><button id="addToCart" class="rounded"><a href="{{ url('cart.addToCart/'.$product['id']) }}">Add to Order</button> </td>
+        <form method="POST" action ="{{ url('cart.addToCart')}}">
+          @csrf
+          <td><button id="addToCart" type = "submit" class="rounded">Add to Order</button> </td>
+            <td class="text-center" ><input class="text-center" id="quantity" name="quantity"></td>
+            <input type="hidden" name="product_id" id="product_id" value="{{ $product['id']  }}">
+        </form>
+        
         <td class="text-center" >{{ $product['product_name'] }}</td>
         <td class="text-center" >{{ $product['product_number'] }}</td>
         <td class="text-center" >{{ $product['product_department'] }}</td>
@@ -57,6 +65,11 @@
   </table>
 </div> 
 </div>   
+{{-- <script>
+  $("#quantity").on("change paste keyup", function() {
+   alert($(this).val()); 
+});
+</script> --}}
 @endsection
 
 
