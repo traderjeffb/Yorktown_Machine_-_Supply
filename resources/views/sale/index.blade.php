@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<h1>hello from sale.index</h1>
 
 @section('content')
 
