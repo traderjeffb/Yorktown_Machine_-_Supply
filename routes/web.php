@@ -59,7 +59,14 @@ Route::get('sale.sale', [SaleController::class, 'sale'])->name('sale.sale');
 //Cart 
 Route::post('cart.store', [CartController::class, 'store'])->name('cart.store');
 Route::get('cart.cart', [CartController::class, 'cart'])->name('cart.cart');
-Route::get('cart.addToCart/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
+Route::get('cart.addToCart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+Route::post('cart.addToCart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+
 
 //Management 
 Route::get('mgt.index', [MgtController::class, 'index'])->name('mgt.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/login', [App\Http\Controllers\HomeController::class, 'login'])->name('/login');
